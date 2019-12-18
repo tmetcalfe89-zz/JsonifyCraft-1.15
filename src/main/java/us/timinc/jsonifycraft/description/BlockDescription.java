@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import us.timinc.jsonifycraft.JsonifyCraft;
 import us.timinc.jsonifycraft.description.providers.IProviderBlock;
 import us.timinc.jsonifycraft.description.providers.IProviderItem;
+import us.timinc.jsonifycraft.description.tidbits.Harvester;
 import us.timinc.jsonifycraft.world.JsonedBlock;
 import us.timinc.jsonifycraft.world.JsonedBlockItem;
 import us.timinc.mcutil.MCRegistry;
@@ -22,6 +23,7 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     public float resistance = -1.0F;
     public float hardness = -1.0F;
     public float slip = -1.0F;
+    public Harvester harvester = null;
 
     transient List<Block> blocks;
 
@@ -82,6 +84,12 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
         // Slipperiness
         if (slip != -1.0F) {
             properties.slipperiness(Floats.constrainToRange(slip, 0.001F,0.999F));
+        }
+
+        // Tool
+        if (harvester != null) {
+            properties.harvestTool(harvester.getTool());
+            properties.harvestLevel(harvester.level);
         }
 
         return properties;

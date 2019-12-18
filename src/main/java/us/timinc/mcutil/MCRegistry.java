@@ -5,12 +5,30 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
+import net.minecraftforge.common.ToolType;
 import org.apache.commons.lang3.EnumUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class MCRegistry<T> {
+    public static final MCRegistry<ToolType> TOOL_TYPES = new MCRegistry<ToolType>() {
+        @Override
+        public MCRegistry<ToolType> setup() {
+            return this;
+        }
+
+        @Override
+        public ToolType getFromName(String name) {
+            return ToolType.get(name);
+        }
+
+        @Override
+        public boolean isValidName(String name) {
+            return true;
+        }
+    }.setup();
+
     public static final MCRegistry<SoundType> SOUND_TYPES = new MCRegistry<SoundType>() {
         private Map<String, SoundType> soundTypes;
 
