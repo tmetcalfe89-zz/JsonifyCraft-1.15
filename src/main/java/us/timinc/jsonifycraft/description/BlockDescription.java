@@ -43,6 +43,9 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
         } else {
             properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material), MCRegistry.MATERIAL_COLORS.getFromName(mapcolor));
         }
+        if (hasFlag("ghost")) {
+            properties.doesNotBlockMovement();
+        }
         return properties;
     }
 }
