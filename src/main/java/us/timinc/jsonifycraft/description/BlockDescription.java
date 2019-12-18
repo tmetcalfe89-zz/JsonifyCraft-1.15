@@ -1,5 +1,6 @@
 package us.timinc.jsonifycraft.description;
 
+import com.google.common.primitives.Ints;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import us.timinc.jsonifycraft.JsonifyCraft;
@@ -16,6 +17,7 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     public String material = "earth";
     public String sounds = "stone";
     public String mapcolor = "";
+    public int light = 0;
 
     transient List<Block> blocks;
 
@@ -49,6 +51,13 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
         }
         if (MCRegistry.SOUND_TYPES.isValidName(sounds)) {
             properties.sound(MCRegistry.SOUND_TYPES.getFromName(sounds));
+        }
+        if (light >= 0 && light <= 15) {
+            properties.lightValue(light);
+        } else {
+            int trueLight = Ints.constrainToRange(light, 0, 15);
+            JsonifyCraft.log("Attempted light value of %s is invalid. Set to %s.", light, trueLight);
+            properties.lightValue(trueLight);
         }
         return properties;
     }
