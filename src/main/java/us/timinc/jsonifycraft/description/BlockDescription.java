@@ -18,6 +18,8 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     public String sounds = "stone";
     public String mapcolor = "";
     public int light = 0;
+    public float resistance = -1.0F;
+    public float hardness = -1.0F;
 
     transient List<Block> blocks;
 
@@ -35,23 +37,31 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     public List<Item> getItems() {
         List<Item> items = new ArrayList<>();
         getBlocks()
-            .forEach(block -> items.add(new JsonedBlockItem(block, this).setRegistryName(JsonifyCraft.MODID, this.name)));
+                .forEach(block -> items.add(new JsonedBlockItem(block, this).setRegistryName(JsonifyCraft.MODID, this.name)));
         return items;
     }
 
     public Block.Properties genBlockProperties() {
         Block.Properties properties;
+
+        // Map color
         if (mapcolor.isEmpty() || !MCRegistry.MATERIAL_COLORS.isValidName(mapcolor)) {
             properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material));
         } else {
             properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material), MCRegistry.MATERIAL_COLORS.getFromName(mapcolor));
         }
+
+        // Ghost
         if (hasFlag("ghost")) {
             properties.doesNotBlockMovement();
         }
+
+        // Sound type
         if (MCRegistry.SOUND_TYPES.isValidName(sounds)) {
             properties.sound(MCRegistry.SOUND_TYPES.getFromName(sounds));
         }
+
+        // Light
         if (light >= 0 && light <= 15) {
             properties.lightValue(light);
         } else {
@@ -59,6 +69,14 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
             JsonifyCraft.log("Attempted light value of %s is invalid. Set to %s.", light, trueLight);
             properties.lightValue(trueLight);
         }
+
+        // Hardness and resistance
+        if ((hardness >= 0) ^ (resistance >= 0)) {
+            properties.hardnessAndResistance(Math.max(hardness, resistance));
+        } else if (hardness != -1.0F && resistance != -1.0F) {
+            properties.hardnessAndResistance(hardness, resistance);
+        }
+
         return properties;
     }
 }
