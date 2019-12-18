@@ -4,7 +4,6 @@ import net.minecraft.item.Item;
 
 import java.util.List;
 
-public interface IItemProvider extends IGameObjectProvider {
-    @Override
-    public List<Item> getItems();
+public interface IItemProvider {
+    List<Item> getItems();
 }
