@@ -1,9 +1,9 @@
-package us.timinc.jsonifycraft.description;
+package us.timinc.jsonifycraft.description.providers;
 
 import net.minecraft.item.Item;
 
 import java.util.List;
 
-public interface IItemProvider {
+public interface IProviderItem {
     List<Item> getItems();
 }
