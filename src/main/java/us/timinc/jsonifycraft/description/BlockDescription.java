@@ -14,6 +14,7 @@ import java.util.List;
 
 public class BlockDescription extends WorldObjectDescription implements IProviderBlock, IProviderItem {
     public String material = "earth";
+    public String sounds = "stone";
     public String mapcolor = "";
 
     transient List<Block> blocks;
@@ -45,6 +46,9 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
         }
         if (hasFlag("ghost")) {
             properties.doesNotBlockMovement();
+        }
+        if (MCRegistry.SOUND_TYPES.isValidName(sounds)) {
+            properties.sound(MCRegistry.SOUND_TYPES.getFromName(sounds));
         }
         return properties;
     }

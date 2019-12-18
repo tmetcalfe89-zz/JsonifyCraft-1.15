@@ -1,5 +1,6 @@
 package us.timinc.mcutil;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.ItemGroup;
@@ -10,6 +11,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class MCRegistry<T> {
+    public static final MCRegistry<SoundType> SOUND_TYPES = new MCRegistry<SoundType>() {
+        private Map<String, SoundType> soundTypes;
+
+        @Override
+        public MCRegistry<SoundType> setup() {
+            soundTypes = new HashMap<>();
+
+            soundTypes.put("WOOD", SoundType.WOOD);
+            soundTypes.put("GROUND", SoundType.GROUND);
+            soundTypes.put("PLANT", SoundType.PLANT);
+            soundTypes.put("STONE", SoundType.STONE);
+            soundTypes.put("METAL", SoundType.METAL);
+            soundTypes.put("GLASS", SoundType.GLASS);
+            soundTypes.put("CLOTH", SoundType.CLOTH);
+            soundTypes.put("SAND", SoundType.SAND);
+            soundTypes.put("SNOW", SoundType.SNOW);
+            soundTypes.put("LADDER", SoundType.LADDER);
+            soundTypes.put("ANVIL", SoundType.ANVIL);
+            soundTypes.put("SLIME", SoundType.SLIME);
+            soundTypes.put("field_226947_m_", SoundType.field_226947_m_);
+            soundTypes.put("WET_GRASS", SoundType.WET_GRASS);
+            soundTypes.put("CORAL", SoundType.CORAL);
+            soundTypes.put("BAMBOO", SoundType.BAMBOO);
+            soundTypes.put("BAMBOO_SAPLING", SoundType.BAMBOO_SAPLING);
+            soundTypes.put("SCAFFOLDING", SoundType.SCAFFOLDING);
+            soundTypes.put("SWEET_BERRY_BUSH", SoundType.SWEET_BERRY_BUSH);
+            soundTypes.put("CROP", SoundType.CROP);
+            soundTypes.put("STEM", SoundType.STEM);
+            soundTypes.put("NETHER_WART", SoundType.NETHER_WART);
+            soundTypes.put("LANTERN", SoundType.LANTERN);
+
+            return this;
+        }
+
+        @Override
+        public SoundType getFromName(String name) {
+            return soundTypes.get(name.toUpperCase());
+        }
+
+        @Override
+        public boolean isValidName(String name) {
+            return soundTypes.containsKey(name.toUpperCase());
+        }
+    }.setup();
+
     public static final MCRegistry<MaterialColor> MATERIAL_COLORS = new MCRegistry<MaterialColor>() {
         private Map<String, MaterialColor> materialColors;
 
