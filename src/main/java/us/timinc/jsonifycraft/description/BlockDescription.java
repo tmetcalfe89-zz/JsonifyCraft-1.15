@@ -14,6 +14,7 @@ import java.util.List;
 
 public class BlockDescription extends WorldObjectDescription implements IProviderBlock, IProviderItem {
     public String material = "earth";
+    public String mapcolor = "";
 
     transient List<Block> blocks;
 
@@ -36,7 +37,12 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     }
 
     public Block.Properties genBlockProperties() {
-        Block.Properties properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material));
+        Block.Properties properties;
+        if (mapcolor.isEmpty() || !MCRegistry.MATERIAL_COLORS.isValidName(mapcolor)) {
+            properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material));
+        } else {
+            properties = Block.Properties.create(MCRegistry.MATERIALS.getFromName(material), MCRegistry.MATERIAL_COLORS.getFromName(mapcolor));
+        }
         return properties;
     }
 }
