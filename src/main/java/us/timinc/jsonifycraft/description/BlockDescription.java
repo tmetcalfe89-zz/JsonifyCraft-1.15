@@ -1,5 +1,6 @@
 package us.timinc.jsonifycraft.description;
 
+import com.google.common.primitives.Floats;
 import com.google.common.primitives.Ints;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -20,6 +21,7 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
     public int light = 0;
     public float resistance = -1.0F;
     public float hardness = -1.0F;
+    public float slip = -1.0F;
 
     transient List<Block> blocks;
 
@@ -75,6 +77,11 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
             properties.hardnessAndResistance(Math.max(hardness, resistance));
         } else if (hardness != -1.0F && resistance != -1.0F) {
             properties.hardnessAndResistance(hardness, resistance);
+        }
+
+        // Slipperiness
+        if (slip != -1.0F) {
+            properties.slipperiness(Floats.constrainToRange(slip, 0.001F,0.999F));
         }
 
         return properties;
