@@ -83,7 +83,7 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
 
         // Slipperiness
         if (slip != -1.0F) {
-            properties.slipperiness(Floats.constrainToRange(slip, 0.001F,0.999F));
+            properties.slipperiness(Floats.constrainToRange(slip, 0.001F, 0.999F));
         }
 
         // Tool

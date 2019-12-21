@@ -7,9 +7,9 @@ import com.google.gson.JsonSyntaxException;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
+import us.timinc.jsonifycraft.description.JsonDescription;
 import us.timinc.jsonifycraft.description.providers.IProviderBlock;
 import us.timinc.jsonifycraft.description.providers.IProviderItem;
-import us.timinc.jsonifycraft.description.JsonDescription;
 import us.timinc.jsonifycraft.deserializers.GameDeserializer;
 
 import java.io.File;
