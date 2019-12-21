@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
-import us.timinc.jsonifycraft.description.IItemProvider;
+import us.timinc.jsonifycraft.description.providers.IProviderBlock;
+import us.timinc.jsonifycraft.description.providers.IProviderItem;
 import us.timinc.jsonifycraft.description.JsonDescription;
 import us.timinc.jsonifycraft.deserializers.GameDeserializer;
 
@@ -61,11 +63,21 @@ class DescriptionLoader {
 
     void registerItems(IForgeRegistry<Item> registry) {
         gameObjects.stream()
-                .filter(IItemProvider.class::isInstance)
-                .flatMap(itemProvider -> ((IItemProvider) itemProvider).getItems().stream())
+                .filter(IProviderItem.class::isInstance)
+                .flatMap(itemProvider -> ((IProviderItem) itemProvider).getItems().stream())
                 .forEach(item -> {
                     JsonifyCraft.log("Registering item: %s", item.getRegistryName());
                     registry.register(item);
+                });
+    }
+
+    void registerBlocks(IForgeRegistry<Block> registry) {
+        gameObjects.stream()
+                .filter(IProviderBlock.class::isInstance)
+                .flatMap(blockProvider -> ((IProviderBlock) blockProvider).getBlocks().stream())
+                .forEach(block -> {
+                    JsonifyCraft.log("Registering block: %s", block.getRegistryName());
+                    registry.register(block);
                 });
     }
 }
