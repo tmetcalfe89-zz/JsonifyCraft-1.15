@@ -78,7 +78,7 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
         if ((hardness >= 0) ^ (resistance >= 0)) {
             properties.hardnessAndResistance(Math.max(hardness, resistance));
         } else if (hardness != -1.0F && resistance != -1.0F) {
-            properties.hardnessAndResistance(hardness, resistance);
+            properties.hardnessAndResistance(0);
         }
 
         // Slipperiness
