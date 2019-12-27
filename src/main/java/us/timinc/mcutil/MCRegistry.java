@@ -48,7 +48,7 @@ public abstract class MCRegistry<T> {
             soundTypes.put("LADDER", SoundType.LADDER);
             soundTypes.put("ANVIL", SoundType.ANVIL);
             soundTypes.put("SLIME", SoundType.SLIME);
-            soundTypes.put("field_226947_m_", SoundType.field_226947_m_);
+            soundTypes.put("HONEY", SoundType.field_226947_m_);
             soundTypes.put("WET_GRASS", SoundType.WET_GRASS);
             soundTypes.put("CORAL", SoundType.CORAL);
             soundTypes.put("BAMBOO", SoundType.BAMBOO);
