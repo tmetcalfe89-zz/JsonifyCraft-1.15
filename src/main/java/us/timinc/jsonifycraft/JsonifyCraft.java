@@ -9,6 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import us.timinc.jsonifycraft.description.BlockDescription;
 import us.timinc.jsonifycraft.description.ItemDescription;
+import us.timinc.jsonifycraft.description.behavior.SayBehavior;
+import us.timinc.jsonifycraft.description.condition.RollCondition;
+import us.timinc.jsonifycraft.deserializers.BehaviorDeserializer;
+import us.timinc.jsonifycraft.deserializers.ConditionDeserializer;
 import us.timinc.jsonifycraft.deserializers.GameDeserializer;
 
 @Mod(JsonifyCraft.MODID)
@@ -34,8 +38,13 @@ public class JsonifyCraft {
 
     public void registerDeserializers() {
         log("--Registering deserializers--");
+        log("-Game objects-");
         GameDeserializer.registerDescription("item", ItemDescription.class);
         GameDeserializer.registerDescription("block", BlockDescription.class);
+        log("-Conditions-");
+        ConditionDeserializer.registerDescription("roll", RollCondition.class);
+        log("-Behaviors-");
+        BehaviorDeserializer.registerDescription("say", SayBehavior.class);
     }
 
     private void loadGameObjects() {
