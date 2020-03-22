@@ -10,6 +10,7 @@ public class WorldObjectDescription extends JsonDescription {
     public String group = "misc";
     public String rarity = "common";
     public int stack = 64;
+    public ReactorDescription[] events;
 
     public Item.Properties genItemProperties() {
         Item.Properties properties = new Item.Properties();

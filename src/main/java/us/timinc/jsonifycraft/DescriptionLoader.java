@@ -7,9 +7,13 @@ import com.google.gson.JsonSyntaxException;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
+import us.timinc.jsonifycraft.description.BehaviorDescription;
+import us.timinc.jsonifycraft.description.ConditionDescription;
 import us.timinc.jsonifycraft.description.JsonDescription;
 import us.timinc.jsonifycraft.description.providers.IProviderBlock;
 import us.timinc.jsonifycraft.description.providers.IProviderItem;
+import us.timinc.jsonifycraft.deserializers.BehaviorDeserializer;
+import us.timinc.jsonifycraft.deserializers.ConditionDeserializer;
 import us.timinc.jsonifycraft.deserializers.GameDeserializer;
 
 import java.io.File;
@@ -26,6 +30,8 @@ class DescriptionLoader {
     DescriptionLoader() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(JsonDescription.class, new GameDeserializer());
+        gsonBuilder.registerTypeAdapter(ConditionDescription.class, new ConditionDeserializer());
+        gsonBuilder.registerTypeAdapter(BehaviorDescription.class, new BehaviorDeserializer());
         gson = gsonBuilder.create();
         try {
             loadGameObjects();
