@@ -60,6 +60,12 @@ public class BlockDescription extends WorldObjectDescription implements IProvide
             properties.doesNotBlockMovement();
         }
 
+        // Full block
+        if (hasFlag("model")) {
+            properties.variableOpacity();
+            properties.notSolid();
+        }
+
         // Sound type
         if (MCRegistry.SOUND_TYPES.isValidName(sounds)) {
             properties.sound(MCRegistry.SOUND_TYPES.getFromName(sounds));
