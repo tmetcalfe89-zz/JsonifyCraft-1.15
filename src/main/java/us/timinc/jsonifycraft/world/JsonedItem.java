@@ -37,9 +37,9 @@ public class JsonedItem extends Item {
 
         EventContext eventContext = new EventContext(world, player);
         if (EventProcessor.process(eventContext, description.events, "itemrightclick")) {
-            return ActionResult.func_226248_a_(player.getHeldItem(hand));
+            return ActionResult.resultSuccess(player.getHeldItem(hand));
         } else {
-            return ActionResult.func_226250_c_(player.getHeldItem(hand));
+            return ActionResult.resultFail(player.getHeldItem(hand));
         }
     }
 
