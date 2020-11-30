@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import us.timinc.jsonifycraft.description.BlockDescription;
+import us.timinc.jsonifycraft.description.FoodDescription;
 import us.timinc.jsonifycraft.description.ItemDescription;
 import us.timinc.jsonifycraft.description.behavior.SayBehavior;
 import us.timinc.jsonifycraft.description.condition.RollCondition;
@@ -41,6 +42,7 @@ public class JsonifyCraft {
         log("-Game objects-");
         GameDeserializer.registerDescription("item", ItemDescription.class);
         GameDeserializer.registerDescription("block", BlockDescription.class);
+        GameDeserializer.registerDescription("food", FoodDescription.class);
         log("-Conditions-");
         ConditionDeserializer.registerDescription("roll", RollCondition.class);
         log("-Behaviors-");
