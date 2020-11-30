@@ -39,7 +39,7 @@ public class JsonedItem extends Item {
         if (EventProcessor.process(eventContext, description.events, "itemrightclick")) {
             return ActionResult.resultSuccess(player.getHeldItem(hand));
         } else {
-            return ActionResult.resultFail(player.getHeldItem(hand));
+            return super.onItemRightClick(world, player, hand);
         }
     }
 
