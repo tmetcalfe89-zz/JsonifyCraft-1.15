@@ -84,6 +84,7 @@ public abstract class MCRegistry<T> {
             materialColors.put("AIR", MaterialColor.AIR);
             materialColors.put("GRASS", MaterialColor.GRASS);
             materialColors.put("SAND", MaterialColor.SAND);
+            materialColors.put("CLOTH", MaterialColor.WOOL);
             materialColors.put("WOOL", MaterialColor.WOOL);
             materialColors.put("TNT", MaterialColor.TNT);
             materialColors.put("ICE", MaterialColor.ICE);
@@ -103,6 +104,7 @@ public abstract class MCRegistry<T> {
             materialColors.put("LIME", MaterialColor.LIME);
             materialColors.put("PINK", MaterialColor.PINK);
             materialColors.put("GRAY", MaterialColor.GRAY);
+            materialColors.put("SILVER", MaterialColor.LIGHT_GRAY);
             materialColors.put("LIGHT_GRAY", MaterialColor.LIGHT_GRAY);
             materialColors.put("CYAN", MaterialColor.CYAN);
             materialColors.put("PURPLE", MaterialColor.PURPLE);
@@ -117,6 +119,23 @@ public abstract class MCRegistry<T> {
             materialColors.put("EMERALD", MaterialColor.EMERALD);
             materialColors.put("OBSIDIAN", MaterialColor.OBSIDIAN);
             materialColors.put("NETHERRACK", MaterialColor.NETHERRACK);
+            materialColors.put("WHITE_STAINED_HARDENED_CLAY", MaterialColor.WHITE_TERRACOTTA);
+            materialColors.put("ORANGE_STAINED_HARDENED_CLAY", MaterialColor.ORANGE_TERRACOTTA);
+            materialColors.put("MAGENTA_STAINED_HARDENED_CLAY", MaterialColor.MAGENTA_TERRACOTTA);
+            materialColors.put("LIGHT_BLUE_STAINED_HARDENED_CLAY", MaterialColor.LIGHT_BLUE_TERRACOTTA);
+            materialColors.put("YELLOW_STAINED_HARDENED_CLAY", MaterialColor.YELLOW_TERRACOTTA);
+            materialColors.put("LIME_STAINED_HARDENED_CLAY", MaterialColor.LIME_TERRACOTTA);
+            materialColors.put("PINK_STAINED_HARDENED_CLAY", MaterialColor.PINK_TERRACOTTA);
+            materialColors.put("GRAY_STAINED_HARDENED_CLAY", MaterialColor.GRAY_TERRACOTTA);
+            materialColors.put("SILVER_STAINED_HARDENED_CLAY", MaterialColor.LIGHT_GRAY_TERRACOTTA);
+            materialColors.put("LIGHT_GRAY_STAINED_HARDENED_CLAY", MaterialColor.LIGHT_GRAY_TERRACOTTA);
+            materialColors.put("CYAN_STAINED_HARDENED_CLAY", MaterialColor.CYAN_TERRACOTTA);
+            materialColors.put("PURPLE_STAINED_HARDENED_CLAY", MaterialColor.PURPLE_TERRACOTTA);
+            materialColors.put("BLUE_STAINED_HARDENED_CLAY", MaterialColor.BLUE_TERRACOTTA);
+            materialColors.put("BROWN_STAINED_HARDENED_CLAY", MaterialColor.BROWN_TERRACOTTA);
+            materialColors.put("GREEN_STAINED_HARDENED_CLAY", MaterialColor.GREEN_TERRACOTTA);
+            materialColors.put("RED_STAINED_HARDENED_CLAY", MaterialColor.RED_TERRACOTTA);
+            materialColors.put("BLACK_STAINED_HARDENED_CLAY", MaterialColor.BLACK_TERRACOTTA);
             materialColors.put("WHITE_TERRACOTTA", MaterialColor.WHITE_TERRACOTTA);
             materialColors.put("ORANGE_TERRACOTTA", MaterialColor.ORANGE_TERRACOTTA);
             materialColors.put("MAGENTA_TERRACOTTA", MaterialColor.MAGENTA_TERRACOTTA);
@@ -133,6 +152,13 @@ public abstract class MCRegistry<T> {
             materialColors.put("GREEN_TERRACOTTA", MaterialColor.GREEN_TERRACOTTA);
             materialColors.put("RED_TERRACOTTA", MaterialColor.RED_TERRACOTTA);
             materialColors.put("BLACK_TERRACOTTA", MaterialColor.BLACK_TERRACOTTA);
+            materialColors.put("CRIMSON_NYLIUM", MaterialColor.RED);
+            materialColors.put("CRIMSON_STEM", MaterialColor.MAGENTA_TERRACOTTA);
+            materialColors.put("CRIMSON_HYPHAE", MaterialColor.BROWN_TERRACOTTA);
+            materialColors.put("WARPED_NYLIUM", MaterialColor.CYAN);
+            materialColors.put("WARPED_STEM", MaterialColor.CYAN);
+            materialColors.put("WARPED_HYPHAE", MaterialColor.BROWN_TERRACOTTA);
+            materialColors.put("WARPED_WART", MaterialColor.CYAN);
 
             return this;
         }
