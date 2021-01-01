@@ -29,19 +29,19 @@ public class JsonedItem extends Item {
         return stack.getItem() == this && description.hasFlag("shimmer");
     }
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-        if (description == null || world.isRemote) {
-            return super.onItemRightClick(world, player, hand);
-        }
-
-        EventContext eventContext = new EventContext(world, player);
-        if (EventProcessor.process(eventContext, description.events, "itemrightclick")) {
-            return ActionResult.resultSuccess(player.getHeldItem(hand));
-        } else {
-            return super.onItemRightClick(world, player, hand);
-        }
-    }
+//    @Override
+//    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+//        if (description == null || world.isRemote) {
+//            return super.onItemRightClick(world, player, hand);
+//        }
+//
+//        EventContext eventContext = new EventContext(world, player);
+//        if (EventProcessor.process(eventContext, description.events, "itemrightclick")) {
+//            return ActionResult.resultSuccess(player.getHeldItem(hand));
+//        } else {
+//            return super.onItemRightClick(world, player, hand);
+//        }
+//    }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
