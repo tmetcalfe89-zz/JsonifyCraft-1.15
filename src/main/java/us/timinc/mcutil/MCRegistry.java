@@ -281,6 +281,33 @@ public abstract class MCRegistry<T> {
         }
     }.setup();
 
+    public static MCRegistry<Float> NOURISHMENT_TIERS = new MCRegistry<Float>() {
+        private Map<String, Float> nourishment_tiers;
+
+        @Override
+        public MCRegistry<Float> setup() {
+            nourishment_tiers = new HashMap<>();
+
+            nourishment_tiers.put("SUPERNATURAL", 2.4F);
+            nourishment_tiers.put("GOOD", 1.6F);
+            nourishment_tiers.put("NORMAL", 1.2F);
+            nourishment_tiers.put("LOW", 0.6F);
+            nourishment_tiers.put("POOR", 0.2F);
+
+            return this;
+        }
+
+        @Override
+        public Float getFromName(String name) {
+            return nourishment_tiers.get(name.toUpperCase());
+        }
+
+        @Override
+        public boolean isValidName(String name) {
+            return nourishment_tiers.containsKey(name.toUpperCase());
+        }
+    }.setup();
+
     public abstract MCRegistry<? extends T> setup();
 
     public abstract T getFromName(String name);

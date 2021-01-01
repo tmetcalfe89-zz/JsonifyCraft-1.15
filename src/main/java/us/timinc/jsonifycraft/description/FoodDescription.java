@@ -5,13 +5,15 @@ import net.minecraft.item.Item;
 import us.timinc.jsonifycraft.JsonifyCraft;
 import us.timinc.jsonifycraft.description.tidbits.EffectDescription;
 import us.timinc.jsonifycraft.world.JsonedFood;
+import us.timinc.mcutil.MCRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FoodDescription extends ItemDescription {
   public int hunger;
-  public float saturation;
+  public float saturation = -1.0F;
+  public String nourishment = "normal";
   public boolean meat;
   public boolean canEatWhenFull;
   public boolean fastToEat;
@@ -37,7 +39,7 @@ public class FoodDescription extends ItemDescription {
     if (food == null) {
       Food.Builder foodBuilder = new Food.Builder()
           .hunger(hunger)
-          .saturation(saturation);
+          .saturation(getSaturation());
       if (meat) {
         foodBuilder.meat();
       }
@@ -53,5 +55,13 @@ public class FoodDescription extends ItemDescription {
       food = foodBuilder.build();
     }
     return food;
+  }
+
+  public float getSaturation() {
+    if (saturation != -1.0F) {
+      return saturation;
+    } else {
+      return MCRegistry.NOURISHMENT_TIERS.getFromName(nourishment);
+    }
   }
 }
