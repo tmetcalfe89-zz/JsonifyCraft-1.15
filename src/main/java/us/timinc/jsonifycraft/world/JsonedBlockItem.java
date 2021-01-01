@@ -8,13 +8,12 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import us.timinc.jsonifycraft.description.BlockDescription;
-import us.timinc.jsonifycraft.description.WorldObjectDescription;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class JsonedBlockItem extends BlockItem {
-    private WorldObjectDescription description;
+    private final BlockDescription description;
 
     public JsonedBlockItem(Block block, BlockDescription blockDescription) {
         super(block, blockDescription.genItemProperties());

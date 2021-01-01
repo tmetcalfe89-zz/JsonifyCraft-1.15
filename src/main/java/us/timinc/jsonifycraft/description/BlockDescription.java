@@ -15,7 +15,7 @@ import us.timinc.mcutil.MCRegistry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockDescription extends WorldObjectDescription implements IProviderBlock, IProviderItem {
+public class BlockDescription extends ItemDescription implements IProviderBlock, IProviderItem {
     public String material = "earth";
     public String sounds = "stone";
     public String mapcolor = "";
