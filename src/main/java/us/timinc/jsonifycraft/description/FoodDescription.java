@@ -14,9 +14,6 @@ public class FoodDescription extends ItemDescription {
   public int hunger;
   public float saturation = -1.0F;
   public String nourishment = "normal";
-  public boolean meat;
-  public boolean canEatWhenFull;
-  public boolean fastToEat;
   public EffectDescription[] effects = {};
 
   private transient Food food = null;
@@ -40,13 +37,13 @@ public class FoodDescription extends ItemDescription {
       Food.Builder foodBuilder = new Food.Builder()
           .hunger(hunger)
           .saturation(getSaturation());
-      if (meat) {
+      if (hasFlag("meat")) {
         foodBuilder.meat();
       }
-      if (canEatWhenFull) {
+      if (hasFlag("canEatWhenFull")) {
         foodBuilder.setAlwaysEdible();
       }
-      if (fastToEat) {
+      if (hasFlag("fastToEat")) {
         foodBuilder.fastToEat();
       }
       for (EffectDescription effectDescription : effects) {
